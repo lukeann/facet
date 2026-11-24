@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>见词如面</title>
+  <meta name="description" content="Facet：边读边学英语，点词查词，按遗忘曲线复习。">
+  <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161514" media="(prefers-color-scheme: dark)">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="见词如面">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="shared/tokens.css">
+  <link rel="stylesheet" href="shared/lookup.css">
+  <link rel="stylesheet" href="main/main.css">
+</head>
+<body class="web">
+  <!-- Same structure as the desktop window; on a phone the sidebar becomes the bottom tab bar (see main.css). -->
+  <div class="shell">
+    <aside class="side">
+      <div class="logo"><span class="mark-box" id="logo"></span><span>见词如面</span></div>
+      <nav id="nav"></nav>
+      <div class="side-foot">
+        <button class="btn primary capture" id="capture" hidden></button>
+        <p class="muted" id="hotkey-hint" hidden></p>
+      </div>
+    </aside>
+    <main class="content" id="content"></main>
+  </div>
+  <noscript>需要启用 JavaScript 才能使用。</noscript>
+  <script src="gloss-core.js"></script>
+  <script src="shared/ui.js"></script>
+  <script src="shared/lookup.js"></script>
+  <script src="main/articles.js"></script>
+  <script src="boot.js"></script>
+</body>
+</html>

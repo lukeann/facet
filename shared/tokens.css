@@ -1,0 +1,108 @@
+/* Design tokens + base components shared by every Gloss window. Neutral palette, one accent. */
+:root {
+  color-scheme: light dark;
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --sunken: #f3f2f0;
+  --text: #1c1917;
+  --text-2: #57534e;
+  --text-3: #8a847e;
+  --line: #e7e5e4;
+  --line-strong: #d6d3d1;
+  --accent: #0f766e;
+  --accent-hover: #0b625b;
+  --accent-soft: rgba(15, 118, 110, 0.1);
+  --on-accent: #ffffff;
+  --danger: #b42318;
+  --mark: rgba(15, 118, 110, 0.16);
+  /* word levels in the reader: just learned (strongest) -> nearly known (faintest) */
+  --lv1: rgba(15, 118, 110, 0.30);
+  --lv2: rgba(15, 118, 110, 0.18);
+  --lv3: rgba(15, 118, 110, 0.09);
+  --warn: #b45309;
+  --radius: 10px;
+  --radius-sm: 7px;
+  --sans: "Segoe UI Variable Text", "Segoe UI", "Microsoft YaHei UI", "PingFang SC", system-ui, sans-serif;
+  --serif: Georgia, "Times New Roman", "Microsoft YaHei UI", "PingFang SC", serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161514;
+    --surface: #1f1e1c;
+    --sunken: #262422;
+    --text: #f3f1ef;
+    --text-2: #c2bcb6;
+    --text-3: #8b847d;
+    --line: #2f2c2a;
+    --line-strong: #443f3b;
+    --accent: #45b5a6;
+    --accent-hover: #5cc4b6;
+    --accent-soft: rgba(69, 181, 166, 0.14);
+    --on-accent: #0c1f1c;
+    --danger: #f08a80;
+    --mark: rgba(69, 181, 166, 0.25);
+    --lv1: rgba(69, 181, 166, 0.40);
+    --lv2: rgba(69, 181, 166, 0.25);
+    --lv3: rgba(69, 181, 166, 0.12);
+    --warn: #e0a458;
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  font: 14px/1.55 var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+button, input, select { font: inherit; color: inherit; }
+h1, h2, h3, p { margin: 0; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 10px; border: 3px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-3); background-clip: content-box; border: 3px solid transparent; }
+
+/* ---- buttons ---- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  height: 32px; padding: 0 14px; border-radius: var(--radius-sm);
+  border: 1px solid var(--line-strong); background: var(--surface); cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, opacity 0.12s;
+}
+.btn:hover { background: var(--sunken); }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 600; }
+.btn.primary:hover:not(:disabled) { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn.ghost { border-color: transparent; background: transparent; color: var(--text-2); }
+.btn.ghost:hover { background: var(--sunken); color: var(--text); }
+.btn.danger { color: var(--danger); border-color: var(--danger); }
+.btn.sm { height: 28px; padding: 0 10px; font-size: 13px; }
+
+.icon-btn {
+  display: inline-grid; place-items: center; width: 28px; height: 28px; padding: 0;
+  border: 0; border-radius: 6px; background: transparent; color: var(--text-3); cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+.icon-btn:hover { background: var(--sunken); color: var(--text); }
+.icon-btn.on { color: var(--accent); background: var(--accent-soft); }
+.icon-btn svg, .btn svg { flex: none; }
+
+/* ---- misc ---- */
+.muted { color: var(--text-3); }
+mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 2px; }
+kbd {
+  font: 600 12px/1 var(--sans); padding: 4px 7px; border-radius: 5px;
+  background: var(--sunken); border: 1px solid var(--line-strong); border-bottom-width: 2px; color: var(--text-2);
+}
+.skeleton { display: block; height: 12px; border-radius: 6px; background: linear-gradient(90deg, var(--sunken), var(--line), var(--sunken)); background-size: 200% 100%; animation: shimmer 1.3s linear infinite; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+.toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 8px); opacity: 0;
+  background: var(--text); color: var(--bg); padding: 8px 14px; border-radius: 8px; font-size: 13px;
+  transition: opacity 0.18s, transform 0.18s; pointer-events: none; z-index: 10; max-width: 80vw;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }

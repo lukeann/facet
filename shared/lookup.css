@@ -1,0 +1,27 @@
+/* Styles for the shared lookup panel (translation popup + article reader). */
+.panel { padding: 14px 16px 16px; background: var(--sunken); border-top: 1px solid var(--line); }
+.p-head { display: flex; align-items: center; gap: 8px; }
+.p-word { font: 600 18px/1.3 var(--serif); }
+.p-phon { font-size: 13px; color: var(--text-3); }
+.p-head .icon-btn { margin-left: -2px; }
+.p-head .spacer + .icon-btn { margin-left: 0; }
+.p-trans { margin-top: 2px; font-size: 16px; font-weight: 600; color: var(--accent); user-select: text; }
+.defs { margin: 10px 0 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: 13px; color: var(--text-2); user-select: text; }
+.defs .pos { display: inline-block; min-width: 38px; margin-right: 6px; font-style: italic; color: var(--text-3); }
+.ctx { margin-top: 12px; padding-left: 10px; border-left: 2px solid var(--line-strong); }
+.ctx-label { font-size: 11px; color: var(--text-3); letter-spacing: 0.05em; margin-bottom: 2px; }
+.ctx-s { font: 14px/1.6 var(--serif); user-select: text; }
+.ctx-t { margin-top: 2px; font-size: 13px; color: var(--text-2); user-select: text; }
+.seen { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line-strong); display: grid; gap: 10px; }
+.seen .ctx-label { margin-bottom: 0; }
+.seen-item { padding-left: 10px; border-left: 2px solid var(--lv1); }
+.seen-item .src, .seen-item .muted { display: inline-block; margin-top: 2px; font-size: 12px; }
+.foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 14px; }
+.foot .state { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--accent); }
+.foot .btn.primary { min-width: 132px; }
+.spacer { flex: 1; }
+
+.skeletons { display: grid; gap: 9px; padding: 6px 0; }
+.skeletons .skeleton:last-child { width: 60%; }
+.err { color: var(--danger); font-size: 13px; }
+.err .btn { margin-top: 8px; display: flex; }
